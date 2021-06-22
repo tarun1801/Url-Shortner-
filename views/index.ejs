@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shortner </title>
+</head>
+<body>
+    <div class = "container">
+        <div class = "heading">
+            <h1>Url Shortener</h1>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class = "col-auto">
+        <form action ="/" method="POST" class ="mb-4">
+            <label for ="fullUrl" class = "form-label" >Url</label>
+            <input type = "url" name = "fullUrl" id = "fullUrl">
+            <button type = "submit" class = "btn btn-success">Shrink</button>
+        </form>
+    </div>
+    </div>
+    <div>
+        <table class = "table table-strippped table-hover" >
+            <tr>
+                <th>Full Url</th>
+                <th>Short Url</th>
+                <th>Clicks</th>
+            </tr>
+            <%if (urlArray.length >0){ %>
+                <% urlArray.forEach(function(url){ %>
+                <tr>
+                  <td><%= url.fullUrl %></td>
+                  <td><a href = "<%= url.shortUrl %>" ><%= url.shortUrl %></a></td>
+                  <td><%= url.clicks %></td>
+                 
+                </tr>
+                <% })}else{ %>
+                  <tr>
+                      <td colspan="6">No Record Found</td>
+                      
+                    </tr>
+                  <% } %>
+        </table>
+    </div>
+    </div>
+</body>
+</html>
